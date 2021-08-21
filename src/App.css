@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 .grecaptcha-badge{
-  display: none !important;
+  display: none !important
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
