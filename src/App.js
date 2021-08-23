@@ -1,6 +1,6 @@
 import React from 'react'
 import firebase from './firebase'
-
+import './App.css';
 class App extends React.Component {
   handleChange = (e) => {
     const { name, value } = e.target
@@ -22,10 +22,10 @@ class App extends React.Component {
   onSignInSubmit = (e) => {
     e.preventDefault()
     this.configureCaptcha()
-
+    const name = this.state.name
     const phoneNumber = "+91" + this.state.mobile
     console.log(phoneNumber)
-
+    console.log(name)
     const appVerifier = window.recaptchaVerifier;
     firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
       .then((confirmationResult) => {
@@ -57,16 +57,20 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="container boxOtp">
 
-        <h2> Enter Mobile Number</h2>
+        <h2> Mobile Number</h2>
         <form onSubmit={this.onSignInSubmit}>
           <div id="sign-in-button"></div>
-          <input type="number" name="mobile" placeholder="Mobile Number" required onChange={this.handleChange} />
+          <input type="text" className="mr1" name="name" placeholder="Name"
+           required onChange={this.handleChange} />
+          <input type="number" className="mr1" name="mobile" placeholder="Mobile Number"
+           required onChange={this.handleChange} />
+        
           <button type="submit">Submit</button>
         </form>
 
-        <h2> Enter OTP</h2>
+        <h2> OTP</h2>
         <form onSubmit={this.onSubmitOTP}>
           <input type="number" name="OTP" placeholder="OTP Number" required onChange={this.handleChange} />
           <button type="submit">Submit</button>
