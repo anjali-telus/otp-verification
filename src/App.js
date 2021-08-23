@@ -37,7 +37,7 @@ class App extends React.Component {
       }).catch((error) => {
         // Error; SMS not sent
         // ...
-        console.log("SMS not sent")
+        console.log("SMS not sent");
       });
   }
   onSubmitOTP = (e) => {
