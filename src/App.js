@@ -1,7 +1,6 @@
 import React from 'react'
 import firebase from './firebase'
 
-
 class App extends React.Component {
   handleChange = (e) => {
     const { name, value } = e.target
@@ -54,7 +53,7 @@ class App extends React.Component {
     }).catch((error) => {
       // User couldn't sign in (bad verification code?)
       // ...
-    });
+    })
   }
   render() {
     return (
